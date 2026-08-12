@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font CSS variables (--font-display / --font-body / --font-mono) are provided
+   by next/font on the <html> element in layout.tsx. */
+
+@layer base {
+  * {
+    border-color: theme("colors.line");
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #070b15;
+    color: theme("colors.fg");
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv01";
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    /* two ambient neon glows bleeding down from the top corners + a faint grid */
+    background-image:
+      radial-gradient(60rem 40rem at 12% -10%, rgba(34, 211, 238, 0.12), transparent 60%),
+      radial-gradient(50rem 36rem at 92% -6%, rgba(255, 46, 154, 0.1), transparent 60%),
+      linear-gradient(to right, rgba(42, 58, 92, 0.14) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(42, 58, 92, 0.14) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 44px 44px, 44px 44px;
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.3);
+    color: #ffffff;
+  }
+
+  /* keyboard focus is always visible */
+  :focus-visible {
+    outline: 2px solid theme("colors.cyan");
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* thin neon scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme("colors.line-2") transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: theme("colors.line-2");
+    border-radius: 999px;
+    border: 2px solid #070b15;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #38507a;
+  }
+}
+
+@layer components {
+  /* Panel surface used by cards + table shell */
+  .panel {
+    @apply rounded-2xl border border-line bg-surface/70 shadow-card backdrop-blur-sm;
+  }
+
+  /* Small uppercase label / eyebrow */
+  .eyebrow {
+    @apply font-mono text-[10px] uppercase tracking-[0.22em] text-muted;
+  }
+
+  /* Neon gradient text used sparingly for the wordmark */
+  .neon-word {
+    background-image: linear-gradient(92deg, #67e8f9 0%, #22d3ee 42%, #ff2e9a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* The scanning ticker rail */
+  .ticker-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent
+    );
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  }
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: marquee var(--marquee-duration, 42s) linear infinite;
+  }
+  .ticker-rail:hover .ticker-track {
+    animation-play-state: paused;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Defined explicitly because the ticker drives the animation from raw CSS
+   (with a runtime --marquee-duration) rather than a Tailwind utility class. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none !important;
+    /* still show the content, just static and scrollable */
+    flex-wrap: nowrap;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

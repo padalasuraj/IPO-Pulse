@@ -1,0 +1,65 @@
+
+> ipo-pulse@1.0.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 7.6s
+ ○ Compiling / ...
+ GET / 500 in 13415ms
+ GET / 500 in 25508ms
+ ✓ Compiled /_error in 1152ms (810 modules)
+ GET /_next/static/webpack/fceb89c02ed360bd.webpack.hot-update.json 404 in 1720ms
+ GET / 200 in 690ms
+ ○ Compiling /icon.svg ...
+ ✓ Compiled /icon.svg in 899ms (391 modules)
+ GET /icon.svg?b22f0248b21f1f03 200 in 1289ms
+ GET / 200 in 472ms
+ ○ Compiling /api/ipos ...
+ ✓ Compiled /api/ipos in 669ms (416 modules)
+ GET /api/ipos 200 in 855ms
+ GET / 200 in 366ms
+ GET /icon.svg?b22f0248b21f1f03 200 in 48ms
+ ✓ Compiled in 1932ms (463 modules)
+ ✓ Compiled in 852ms (821 modules)
+ ✓ Compiled in 248ms (463 modules)
+ ✓ Compiled in 419ms (822 modules)
+ ✓ Compiled in 436ms (822 modules)
+ ✓ Compiled /api/ipos in 190ms (387 modules)
+ GET /api/ipos 200 in 1820ms
+ ✓ Compiled /api/ipos/closing-today in 276ms (389 modules)
+ GET / 200 in 1362ms
+ GET /api/ipos/closing-today 200 in 1553ms
+ GET / 500 in 98ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 815ms (811 modules)
+ GET /_next/static/chunks/fallback/main.js 404 in 1085ms
+ GET /_next/static/chunks/fallback/webpack.js 404 in 1089ms
+ GET /_next/static/chunks/fallback/react-refresh.js 404 in 1087ms
+ GET /_next/static/chunks/fallback/pages/_app.js 404 in 1087ms
+ GET /_next/static/chunks/fallback/pages/_error.js 404 in 1083ms
+ GET / 200 in 1007ms
+ GET /_next/static/css/app/layout.css?v=1786563712088 404 in 49ms
+ GET /_next/static/chunks/main-app.js?v=1786563712088 404 in 78ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 83ms
+ GET /_next/static/chunks/app/page.js 404 in 79ms
+ ✓ Compiled /icon.svg in 175ms (392 modules)
+ GET /icon.svg?b22f0248b21f1f03 200 in 468ms
+ GET / 200 in 1256ms
+ GET /_next/static/css/app/layout.css?v=1786563735849 404 in 43ms
+ GET /_next/static/chunks/main-app.js?v=1786563735849 404 in 58ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 52ms
+ GET /_next/static/chunks/app/page.js 404 in 66ms
+ GET /icon.svg?b22f0248b21f1f03 200 in 15ms
+ GET / 200 in 651ms
+ GET /_next/static/css/app/layout.css?v=1786563739019 404 in 46ms
+ GET /_next/static/chunks/main-app.js?v=1786563739019 404 in 50ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 52ms
+ GET /_next/static/chunks/app/page.js 404 in 52ms
+ GET /icon.svg?b22f0248b21f1f03 200 in 16ms
+ GET / 200 in 1153ms
+ GET / 200 in 714ms
+ GET /_next/static/css/app/layout.css?v=1786563786975 404 in 48ms
+[?25h

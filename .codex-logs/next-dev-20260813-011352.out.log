@@ -1,0 +1,17 @@
+
+> ipo-pulse@1.0.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 3s
+ ○ Compiling / ...
+ ✓ Compiled / in 4.1s (582 modules)
+ GET / 200 in 5440ms
+ GET / 200 in 1193ms
+ ○ Compiling /icon.svg ...
+ ✓ Compiled /icon.svg in 720ms (351 modules)
+ GET /icon.svg?b22f0248b21f1f03 200 in 935ms
+ ✓ Compiled in 4.6s (277 modules)

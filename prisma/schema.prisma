@@ -1,0 +1,63 @@
+// Prisma schema for IPO Pulse.
+// Only the *raw* / mutable fields are persisted. Derived numbers
+// (lot value, expected listing, profit per lot, profit %, risk score)
+// are computed at read time in src/lib/ipo-math.ts so the formulas
+// live in one place and can evolve without a migration.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum IpoBoard {
+  MAINBOARD
+  SME
+}
+
+enum IpoStatus {
+  UPCOMING
+  OPEN
+  CLOSED
+  LISTED
+}
+
+model Ipo {
+  id        String    @id @default(cuid())
+  slug      String    @unique
+  name      String
+  board     IpoBoard  @default(MAINBOARD)
+  status    IpoStatus @default(UPCOMING)
+
+  // Price band in INR (per share). priceMax is treated as the cut-off price.
+  priceMin  Int
+  priceMax  Int
+  lotSize   Int // shares per lot
+  issueSize String? // human string e.g. "₹1,200 Cr"
+
+  // Grey Market Premium (INR per share). Can be negative.
+  gmp Int @default(0)
+
+  // Subscription (times the issue was subscribed). null until the IPO opens.
+  subOverall Float?
+  subRetail  Float?
+  subQib     Float?
+  subNii     Float?
+
+  // Realised listing price (INR) once status = LISTED.
+  listingPrice Int?
+
+  openDate    DateTime
+  closeDate   DateTime // last date to apply
+  listingDate DateTime?
+
+  source    String   @default("seed")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([closeDate])
+}
