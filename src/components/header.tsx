@@ -44,7 +44,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-ink/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-16 w-full max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
         <div className="flex items-center gap-2.5">
           <span className="relative grid h-9 w-9 place-items-center rounded-xl border border-cyan/30 bg-cyan/10">
             <Activity className="h-5 w-5 text-cyan" strokeWidth={2.4} />

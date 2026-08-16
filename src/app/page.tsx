@@ -11,7 +11,7 @@ export default async function HomePage() {
   return (
     <>
       <Header />
-      <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
+      <main className="mx-auto w-full max-w-[1500px] px-4 py-6 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 sm:py-8">
         <div className="mb-6">
           <p className="eyebrow">Indian primary market</p>
           <h1 className="mt-2 font-display text-2xl font-bold tracking-tight text-balance sm:text-3xl">
